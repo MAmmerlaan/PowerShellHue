@@ -1,0 +1,3 @@
+Execute gpedit.msc (local Policies)
+
+Windows settings -> Scripts -> Shutdown -> Properties -> Add
