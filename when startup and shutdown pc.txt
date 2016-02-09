@@ -1,3 +1,7 @@
-Execute gpedit.msc (local Policies)
+Startup :
+Scheduled task, trigger 'on system startup'
 
+
+Shutdown :
+Execute gpedit.msc (local Policies)
 Windows settings -> Scripts -> Shutdown -> Properties -> Add
