@@ -11,11 +11,13 @@ function CheckCurrentState
     if ($result.state -match 'on=False') 
     {
         write-host 'Light is OFF'
+		Log $("Light is OFF.")
 		$currentState = 0
     }
     else
     {
         write-host 'Light is ON'
+		Log $("Light is ON.")
 		$currentState = 1
 		
     }
@@ -44,7 +46,6 @@ function checkSunSet
 		{
 			#write-host "$calculatedSunSet is less then current time. We shall engage the Philips Hue"
 			Log $("$calculatedSunSet is less then current time. We shall engage the Philips Hue")
-			
 			[bool] $engageHue = 1
 			
 		}
@@ -84,4 +85,5 @@ $Input = @"
 }
 "@
 Invoke-RestMethod -Method Put -Uri $ApiUrl"/state" -Body $Input
+Log $("Turned the Hue on with params :  bri : $bri , sat = $sat, hue : $hue")
 }

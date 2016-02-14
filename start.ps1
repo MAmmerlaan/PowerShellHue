@@ -29,24 +29,31 @@ $result = checkSunSet
 write-host $CurrentState
 do
 {
-	#write-host $("Do while Current state is OFF")
-	Sleep -s $loopwaitcounter
-	Log $("Do while Current state is OFF")
-	$CurrentState = CheckCurrentState
-	$checkSunset = checkSunSet
 	
+	Log $("Do while loop :  Current state is OFF")
+	$CurrentState = CheckCurrentState
+	$engageHue = checkSunSet
+	
+	if($engageHue)
+	{
+		write-host "checkSunSet is true and the hue is turned off. time to turn it on.."
+		EngageHue
+	}
+	else
+	{
+		write-host "Hue is off, and the sun hasn't set."
+	}
+	Sleep -s $loopwaitcounter
 	
 }
 while($CurrentState -eq 0)
 
 do
 {
-	#write-host $("Do while Current state is ON")
+	Log $("Do while loop :  Current state is ON")
+	$CurrentState = CheckCurrentState	
 	Sleep -s $loopwaitcounter
-	Log $("Do while Current state is ON")
-	$CurrentState = CheckCurrentState
-	
-	
+	EngageHue
 	
 }
 while($CurrentState -eq 1)
