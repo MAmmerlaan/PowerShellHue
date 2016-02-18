@@ -1,4 +1,4 @@
-$bridgeIP 			= "192.168.178.24"
+$bridgeIP 			= "192.168.178.12"
 $username 			= "d84f5e9696ffd7394edb2d22fa3cfb"
 $ApiUrl 			= "http://$BridgeIP/api/$username/lights/1"
 $logbasedirectory 	= "\logs\"
@@ -86,4 +86,15 @@ $Input = @"
 "@
 Invoke-RestMethod -Method Put -Uri $ApiUrl"/state" -Body $Input
 Log $("Turned the Hue on with params :  bri : $bri , sat = $sat, hue : $hue")
+}
+
+function ShutdownHue
+{
+$Input = @"
+{
+"on":false
+}
+"@
+Invoke-RestMethod -Method Put -Uri $ApiUrl"/state" -Body $Input
+Log $("Turned the Hue off.")
 }
