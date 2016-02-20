@@ -1,8 +1,6 @@
 #lets start working from current dir..
 ."$PSScriptRoot\includes.ps1"
 
-
-
 write-host $CurrentState
 do
 {
@@ -25,7 +23,7 @@ do
 	
 }
 while($CurrentState -eq 0)
-Log $("Do while loop while HUE is OFF exited.")
+Log $("Hue is turned on, lets start changing colors every now and then.")
 	
 do
 {
@@ -36,6 +34,6 @@ do
 	$CurrentState = CheckCurrentState	
 }
 while($CurrentState -eq 1)
-Log $("Do while loop while HUE is on exited.")
+Log $("Hue light turned off. Stopping the changing of colors.")
 
 

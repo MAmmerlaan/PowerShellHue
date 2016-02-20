@@ -1,11 +1,14 @@
 # PowerShellHue
 
 Installation
-1. Setup a scheduled task (trigger 'On system startup') for starting the powershell scripts
+1. Setup a scheduled task (trigger 'On system startup') to the start.bat file.
 2. Setup a scheduled task for stopping the Hue on shutdown.
-	(the script notices when the Hue is turned off, and will stop. This job is to turn of the hue when your PC shuts down.
+	Shutdown :
+	Execute gpedit.msc (local Policies)
+	Windows settings -> Scripts -> Shutdown -> Properties -> Add
+		(the script notices when the Hue is turned off, and will stop. This job is to turn of the hue when your PC shuts down.
 3. Setup the following paramters in the include file.
-	$bridgeIP 				= use this URL to retrieve Bridge IP adres : https://www.meethue.com/api/nupnp
+	$bridgeIP use this URL to retrieve Bridge IP adres : https://www.meethue.com/api/nupnp
 	$username 				= 
 	#get a username by opening the Bridge webinterface.
 	#	http://$BridgeIP/debug/clip.html
