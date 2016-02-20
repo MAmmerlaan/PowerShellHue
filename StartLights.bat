@@ -1,1 +1,0 @@
-powershell ./StartLights.ps1

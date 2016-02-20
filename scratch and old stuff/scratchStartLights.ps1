@@ -1,6 +1,7 @@
 ﻿."./include.ps1" 
 Clear-Host
-$bridgeIP = "192.168.178.24"
+$bridgeIP = "192.168.178.12"
+#find your bridgeIP by visiting http://www.meethue.com/api/nupnp
 $username = "d84f5e9696ffd7394edb2d22fa3cfb"
 $ApiUrl = "http://$BridgeIP/api/$username/lights/1"
 $waittimebetweenchanges = 
