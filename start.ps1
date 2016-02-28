@@ -30,6 +30,7 @@ do
 	Log $("Do while loop :  Current state is ON")
 	write-host "Waiting to next transition ( wait : $loopwaitcounterSec, transitiontime :"($colortransitiontime/10)")"
 	EngageHue
+	Log $("Waiting to next transition (wait : $loopwaitcounterSec, transitiontime :$colortransitiontime/10)")
 	Sleep -s ($loopwaitcounterSec+($colortransitiontime /10))
 	$CurrentState = CheckCurrentState	
 }
