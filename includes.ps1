@@ -2,8 +2,8 @@ $bridgeIP 				= "192.168.178.12"
 $username 				= "d84f5e9696ffd7394edb2d22fa3cfb"
 $ApiUrl 				= "http://$BridgeIP/api/$username/lights/1"
 $logbasedirectory 		= "\logs\"
-$loopwaitcounterSec		= 5
-$colortransitiontime	= 36
+$loopwaitcounterSec		= 1200
+$colortransitiontime	= 180
 #Check README on what the variables mean.
 
 function CheckCurrentState 
@@ -101,7 +101,7 @@ function checkSunSet
 function EngageHue
 {
 
-	$bri = (Get-Random -Maximum 255 -Minimum 10)
+	$bri = (Get-Random -Maximum 50 -Minimum 1)
 	$sat = (Get-Random -Maximum 255 -Minimum 1)
 	$hue = (Get-Random -Maximum 65500 -Minimum 1)
 
