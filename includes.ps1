@@ -2,7 +2,7 @@ $bridgeIP 				= "192.168.178.12"
 $username 				= "d84f5e9696ffd7394edb2d22fa3cfb"
 $ApiUrl 				= "http://$BridgeIP/api/$username/lights/1"
 $logbasedirectory 		= "\logs\"
-$loopwaitcounterSec		= 1200
+$loopwaitcounterSec		= (Get-Random -Maximum 1800 -Minimum 600)
 $colortransitiontime	= 180
 #Check README on what the variables mean.
 
