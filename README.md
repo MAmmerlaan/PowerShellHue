@@ -1,6 +1,6 @@
 # PowerShellHue
 
-Installation
+Installation / Setting up
 
 
 1. Setup a scheduled task (trigger 'On system startup') for starting the powershell scripts
@@ -12,7 +12,7 @@ Installation
 	- User (or machine, doesn't matter) configuration
 	- Windows settings
 	- Scripts
-	- Point to the stop.bat file.
+	- Point to the stop.bat file in the logging off or shutdown tree.
 	
 	
 	
@@ -37,3 +37,9 @@ Installation
 	
 
 	You can edit the paramaters of the maximum brightness of the Hue light in the EngageHue function.
+	
+	
+Using 
+
+No further configuration needed, the light(s) will turn on, change color and turn off at the expected times. 
+You may change the parameters to your likings.
