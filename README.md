@@ -18,6 +18,7 @@ Installation / Setting up
 	
 3. Setup the following paramters in the include file.
 	- $bridgeIP use this URL to retrieve Bridge IP adres : https://www.meethue.com/api/nupnp
+	
 	$username 				= 
 	- get a username by opening the Bridge webinterface.
 	- 	http://$BridgeIP/debug/clip.html
@@ -27,6 +28,7 @@ Installation / Setting up
 	-  		Body : {"devicetype":"my_hue_app#powershell_script"}
 	-		Method : POST
 	-	Your username in the response.
+	
 	$ApiUrl 				= "http://$BridgeIP/api/$username/lights/1"
 	
 	$logbasedirectory 		= "\logs\"

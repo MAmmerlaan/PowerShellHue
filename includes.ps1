@@ -45,8 +45,9 @@ function checkSunSet
 	#write-host (get-date).DayOfYear
 
 	$today = Get-Date -Date (get-date)
-	$today = Get-Date -Date '1-2'
-	#Use this line to simulate other dates then today. dd.mm format.
+	
+	#$today = Get-Date -Date '1-2'
+	#Use this line to simulate other dates then today. (dd.mm format)
 	
 	$latest_sunset = Get-Date -Date '9-12'
 	$earliest_sunset = Get-Date -Date '24-6'
