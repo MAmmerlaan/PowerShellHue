@@ -1,6 +1,6 @@
 $bridgeIP 				= "192.168.178.12"
 $username 				= "d84f5e9696ffd7394edb2d22fa3cfb"
-$ApiUrl 				= "http://$BridgeIP/api/$username/lights/1"
+$ApiUrl 				= "http://$BridgeIP/api/$username/lights/"
 $logbasedirectory 		= "\logs\"
 $loopwaitcounterSec		= (Get-Random -Maximum 1800 -Minimum 600)
 $colortransitiontime	= 180
@@ -8,19 +8,20 @@ $colortransitiontime	= 180
 
 function CheckCurrentState 
 {
-    $result = Invoke-RestMethod -Uri $ApiUrl 
+	write-host "$ApiUrl"
+    $result = Invoke-RestMethod -Uri "$ApiUrl"
     
-    if ($result.state -match 'on=False') 
-    {
-        write-host 'Light is OFF'
-		Log $("Light is OFF.")
-		$currentState = 0
-    }
-    else
+    if ($result.state -match 'on=True') 
     {
         write-host 'Light is ON'
 		Log $("Light is ON.")
 		$currentState = 1
+    }
+    else
+    {
+        write-host 'Light is OFF'
+		Log $("Light is OFF.")
+		$currentState = 0
 		
     }
 	return $currentState
@@ -45,9 +46,8 @@ function checkSunSet
 	#write-host (get-date).DayOfYear
 
 	$today = Get-Date -Date (get-date)
-	
 	#$today = Get-Date -Date '1-2'
-	#Use this line to simulate other dates then today. (dd.mm format)
+	#Use this line to simulate other dates then today. dd.mm format.
 	
 	$latest_sunset = Get-Date -Date '9-12'
 	$earliest_sunset = Get-Date -Date '24-6'
@@ -97,22 +97,26 @@ function checkSunSet
 	return $TurnOnHueBasedonTime
 
 
+
 }
 
 function EngageHue
 {
 
-	#$bri = (Get-Random -Maximum 50 -Minimum 1)
+	$bri = (Get-Random -Maximum 200 -Minimum 80)
 	$sat = (Get-Random -Maximum 255 -Minimum 1)
 	$hue = (Get-Random -Maximum 65500 -Minimum 1)
-
+	$loopwaitcounterSec = (Get-Random -Maximum 1800 -Minimum 600)
+	$colortransitiontime = $colortransitiontime/10
 $Input = @"
 {
 "on":true, "sat":$sat, "bri":$bri,"hue":$hue,"transitiontime":$colortransitiontime
 }
 "@
-Invoke-RestMethod -Method Put -Uri $ApiUrl"/state" -Body $Input
+Invoke-RestMethod -Method Put -Uri $ApiUrl"1/state" -Body $Input
+Invoke-RestMethod -Method Put -Uri $ApiUrl"3/state" -Body $Input
 Log $("Turned the Hue on with params :  bri : $bri , sat = $sat, hue : $hue, transistiontime : ($colortransitiontime/10)")
+sleep -s $loopwaitcounterSec
 }
 
 function ShutdownHue
@@ -122,6 +126,7 @@ $Input = @"
 "on":false
 }
 "@
-Invoke-RestMethod -Method Put -Uri $ApiUrl"/state" -Body $Input
+Invoke-RestMethod -Method Put -Uri $ApiUrl"1/state" -Body $Input
+Invoke-RestMethod -Method Put -Uri $ApiUrl"3/state" -Body $Input
 Log $("Turned the Hue off.")
 }
