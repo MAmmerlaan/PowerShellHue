@@ -1,6 +1,6 @@
 # PowerShellHue
 
-Installation / Setting up
+Installation / Setting up 
 
 
 1. Setup a scheduled task (trigger 'On system startup') for starting the powershell scripts
