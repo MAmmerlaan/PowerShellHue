@@ -102,7 +102,7 @@ function checkSunSet
 function EngageHue
 {
 
-	$bri = (Get-Random -Maximum 50 -Minimum 1)
+	#$bri = (Get-Random -Maximum 50 -Minimum 1)
 	$sat = (Get-Random -Maximum 255 -Minimum 1)
 	$hue = (Get-Random -Maximum 65500 -Minimum 1)
 
