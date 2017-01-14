@@ -1,6 +1,6 @@
 
-$user = 'root'
-$pass = 'R000rP2ssweurd!!'
+$user = 'username'
+$pass = 'password'
 $database = 'PowerShellHue'
 $MySQLHost = 'localhost'
 $databasetable = 'detectphoneonwifi'
@@ -13,7 +13,7 @@ $bridgeIP 				= "192.168.178.12"
 $username 				= "d84f5e9696ffd7394edb2d22fa3cfb"
 $ApiUrl 				= "http://$BridgeIP/api/$username/lights"
 $logbasedirectory 		= "\logs\"
-$loopwaitcounterSec		= (Get-Random -Minimum 200 -Maximum 1200)
+$loopwaitcounterSec		= (Get-Random -Minimum 600 -Maximum 1200)
 $colortransitiontime	= 180
 
 #the device name, and IP of the device you want to have detected. This device must be response to ICMP (ping)
