@@ -1,0 +1,1 @@
+﻿Register-EngineEvent PowerShell.Exiting –Action { write-host 'Type your Code' }
