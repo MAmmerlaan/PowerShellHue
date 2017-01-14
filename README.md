@@ -2,7 +2,7 @@
 
 Is a Powershell/ MySQl based script that engages a set of Hue lights, when the went down, and wifi devices respons.
 The suntimes are read from a database table. And the devices are two smartphone, with static IP's. If the devices are not only, it will start a infinite loop, and will not light up the 
-This script is ran from a Windows 10 based HTPC which is not online 24/7. 
+This script is ran from a Windows 10 based HTPC which is not online 24/7.   
 
 Installation / Setting up 
 
