@@ -1,6 +1,6 @@
 # PowerShellHue
 
-Is a Powershell/ MySQL based script that engages a set of Hue lights, when the sun went down, and wifi devices respond.
+Is a Powershell/ MySQL based script that engages a set of Hue lights. It behaves according a database table holding the sun set times. And will respond to the presence of devices on WiFi.
 The suntimes are read from a database table. And the devices are two smartphone, with static IP's. If the devices are not online, it will start a infinite loop, and will turn off the lights.
 This script is ran from a Windows 10 based HTPC which is not online 24/7.   
 
