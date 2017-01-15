@@ -16,12 +16,20 @@ do
    {
         #write-host "Solartime is evening.."
         RunQuery  "log"  "Solartime is evening.."
-            
         DetectPhone
+        CheckCurrentState
 
-        write-host "phone found net voor hue aan statement is $script:phonefound"
 
-        if($script:phonefound -ne 0)
+        if($script:engagedHue -eq 1 -and $script:currentState -eq 0)
+        {
+            
+            #the Hue has been lit before, but current state is off. So it has to be shut down from another source.. Lets keep the lights off.
+
+            RunQuery  "log"  "Lights have been turned off, from an other source, lets keep the lights off."
+            sleep -s $WaitTimeIfNoDeviceOnline
+        
+        }
+        elseif($script:phonefound -ne 0)
         {
             write-host "Activate HUE"
             #activate

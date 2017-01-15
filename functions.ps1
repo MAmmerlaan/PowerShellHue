@@ -146,7 +146,7 @@ if ((Get-Date -UFormat %R)  -gt $sunup -and  (Get-Date -UFormat %R)  -lt $sundow
 {
 	write-host "Current time is after $sunup but before $sundown. It's daytime with sunlight."
     $script:solartime = "daytime" 
-    RunQuery  "log"  "Current time is after $sunup but before $sundown. It's daytime with sunlight."
+    RunQuery  "log"  "Current time is after $sunup but before $sundown. Its daytime with sunlight."
 		
 }
 elseif ((Get-Date -UFormat %R)  -lt $sunup )
@@ -188,16 +188,16 @@ if ($result -like '*`"on`":true*')
         write-host 'Light is ON'
 		#Log $("Result is $result.")
 		#Log $("Light is ON.")
-		$currentState = 1
+		$script:currentState = 1
     }
     else
     {
         write-host 'Light is OFF'
 		#Log $("Light is OFF.")
-		$currentState = 0
+		$script:currentState = 0
 		
     }
-	return $currentState
+	return $script:currentState
 }
 
 Function EngageHue{

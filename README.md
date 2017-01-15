@@ -10,11 +10,13 @@ Install your preferred WAMP stack, I choose AppServ.
 
 1. Unzip the files to your local drive.
 
-2. Populate the database with the right tables, run docs/powershellhue.sql against your MySQL db.
+2. To run MySQL queries from PowerShell to the db, you need a Powershell Connector. Download and install it from http://dev.mysql.com/downloads/connector/net/
 
-3. Setup a scheduled task (trigger 'On system startup') for starting the powershell scripts. You can use docs/StartPhilpsHue_v2.xml as an example. Mind the absolute path of your files.
+3. Populate the database with the right tables, run docs/powershellhue.sql against your MySQL db.
 
-4. Setup the following parameters in the variables file.
+4. Setup a scheduled task (trigger 'On system startup') for starting the powershell scripts. You can use docs/StartPhilpsHue_v2.xml as an example. Mind the absolute path of your files.
+
+5. Setup the following parameters in the variables file.
 
 	- $user, $password, $database = details MySQL in your local WAMP stack.
 	- $bridgeIP use this URL to retrieve Bridge IP adres : https://www.meethue.com/api/nupnp

@@ -22,6 +22,7 @@ $devices = @( ("PhoneMart", "192.168.178.98"), ("PhoneSas", "192.168.178.97") )
 $huelights = @( ("1"),("2"),("3") )
 
 $waittimeshort = 30
+$script:engagedHue = 0
 $waittimelong = 600
 
 $waittime = $waittimeshort
