@@ -203,11 +203,11 @@ if ($result -like '*`"on`":true*')
 Function EngageHue{
 
 #setting the max and minimum brightness
-$bri = (Get-Random -Minimum 150 -Maximum 254 )
-#setting colour saturation.
-$sat = (Get-Random -Minimum 1 -Maximum 255)
+$bri = (Get-Random -Minimum 150 -Maximum 200 )
+#setting colour saturation. Low saturation is very white, high saturation is pure color. For ambiance reasons, keeping it in the lower half of the spectrum (1-255)
+$sat = (Get-Random -Minimum 10 -Maximum 100)
 #Hue can go from 0 to 65000, I upped the minimum, and lowered the maximum to prevent the colour red from showing. This colour lid up my house like a whorehouse.
-$hue = (Get-Random -Minimum 1500 -Maximum 56000)
+$hue = (Get-Random -Minimum 15000 -Maximum 50000)
 	
 #setting the waittime to 'hold' a color. The minimum is for example 600 (ten minutes), and max 1800/ 30 minutes.
 $script:loopwaitcounterSec = (Get-Random -Maximum 1000 -Minimum 600)
